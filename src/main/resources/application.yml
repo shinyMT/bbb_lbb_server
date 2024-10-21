@@ -1,0 +1,30 @@
+version: '1.0.0'
+
+server:
+  port: 11101
+  # ??????
+  servlet:
+    context-path: /blb
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+spring:
+  application:
+    name: 'bbb_lbb'
+  profiles:
+    active: dev
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  typeAliasesPackage: com.thy.**.domain
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'

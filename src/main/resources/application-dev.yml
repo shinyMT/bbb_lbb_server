@@ -1,0 +1,34 @@
+server:
+  port: 11101
+
+spring:
+  datasource:
+    username: thy
+    password: thy0102.
+    url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    com.erzhong: DEBUG
+  file:
+    name: log/dev.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%logger{50} : %line] - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%logger{50} : %line] - %msg%n"
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 31
+      total-size-cap: 100MB
+      file-name-pattern: log/dev.%d{yyyy-MM-dd}.%i.log
+
+python:
+  exe-file: '/Users/tenghaiyi/PycharmProjects/novel_python/novel.py'
+  target-path: '/Users/novel/'
+  source-py-path: '/Library/Frameworks/Python.framework/Versions/3.10/bin/python3'
+#  exe-file: 'D:\\project\\thy\\python\\novel\\novel.py'
+#  target-path: 'G:\\novel\\'
+#  source-py-path: 'G:\\AppData\\Local\\Programs\\Python\\Python38\\python'
