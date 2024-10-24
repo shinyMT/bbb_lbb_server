@@ -3,6 +3,7 @@ package com.thy.bbb_lbb.domain.dto;
 import java.util.Date;
 import java.io.Serial;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
@@ -21,11 +22,12 @@ public class PoopDTO implements Serializable {
     private static final long serialVersionUID = -24597859774343636L;
 
     @Schema(description = "")
-    private Integer id;
-
-    @Schema(description = "")
-    private Integer userId;
-
-    @Schema(description = "")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date poopTime;
+
+    @Schema(description = "年份")
+    private int year;
+
+    @Schema(description = "月份")
+    private int month;
 }

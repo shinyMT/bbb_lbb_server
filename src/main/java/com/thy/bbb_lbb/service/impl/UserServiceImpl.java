@@ -1,13 +1,16 @@
 package com.thy.bbb_lbb.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.thy.bbb_lbb.anno.UsePage;
 import com.thy.bbb_lbb.mapper.UserMapper;
 import com.thy.bbb_lbb.domain.po.UserPO;
 import com.thy.bbb_lbb.domain.dto.UserDTO;
 import com.thy.bbb_lbb.service.UserService;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,10 +19,8 @@ import java.util.List;
  * @author c4x
  * 2024-10-17 14:07:39
  */
-@Service(UserServiceImpl.TAG)
-public class UserServiceImpl implements UserService {
-    @SuppressWarnings("unused")
-    public final static String TAG = "userService";
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper, UserPO> implements UserService {
 
     @Resource
     private UserMapper mapper;
@@ -42,11 +43,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateById(UserPO user) {
-        return mapper.updateById(user) > 0;
+        return false;
     }
 
     @Override
     public boolean deleteById(Integer id) {
-        return mapper.deleteById(id) > 0;
+        return false;
     }
+
+    @Override
+    public UserPO login(UserDTO dto) {
+        LambdaQueryWrapper<UserPO> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(UserPO::getCode, dto.getCode());
+        wrapper.eq(UserPO::getPassword, dto.getPassword());
+
+        List<UserPO> poList = list(wrapper);
+
+        return !poList.isEmpty() ? poList.get(0) : null;
+
+    }
+
 }

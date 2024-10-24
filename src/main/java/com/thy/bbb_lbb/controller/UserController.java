@@ -1,17 +1,22 @@
 package com.thy.bbb_lbb.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageInfo;
 import com.thy.bbb_lbb.domain.dto.UserDTO;
+import com.thy.bbb_lbb.domain.po.UserPO;
 import com.thy.bbb_lbb.domain.vo.UserVO;
+import com.thy.bbb_lbb.result.GlobalException;
 import com.thy.bbb_lbb.result.ResultBody;
 import com.thy.bbb_lbb.service.UserService;
 import com.thy.bbb_lbb.util.BeanUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * @author c4x
@@ -57,6 +62,21 @@ public class UserController {
         final var po = service.getDetails(id);
         final var vo = BeanUtils.convertBean(po, UserVO.class);
         return ResultBody.ok(vo);
+    }
+
+    /**
+     * 登录验证
+     */
+    @Operation(summary = "登录验证", description = "登录验证")
+    @PostMapping("/login")
+    public ResultBody<UserPO> login(@Parameter(required = true) @RequestBody UserDTO dto) {
+        // 通过wrapper查询数据库中是否有账号密码匹配的数据，没有则抛出错误
+        UserPO user = service.login(dto);
+        if (user != null) {
+            return ResultBody.ok(user);
+        } else {
+            throw new GlobalException("账号或密码错误");
+        }
     }
 
     /**

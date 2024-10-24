@@ -1,6 +1,7 @@
 package com.thy.bbb_lbb.service;
 
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.thy.bbb_lbb.domain.po.UserPO;
 import com.thy.bbb_lbb.domain.dto.UserDTO;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author c4x
  * 2024-10-17 14:07:39
  */
-public interface UserService {
+public interface UserService extends IService<UserPO> {
     /**
      * 通过ID查询单条数据
      *
@@ -62,4 +63,6 @@ public interface UserService {
      * 2024-10-17 14:07:39
      */
     boolean deleteById(Integer id);
+
+    UserPO login(UserDTO dto);
 }

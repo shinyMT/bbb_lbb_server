@@ -2,6 +2,8 @@ package com.thy.bbb_lbb.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.thy.bbb_lbb.domain.bo.PoopBO;
+import com.thy.bbb_lbb.domain.dto.PoopDTO;
 import com.thy.bbb_lbb.domain.po.PoopPO;
 
 import java.util.List;
@@ -24,7 +26,7 @@ public interface PoopService extends IService<PoopPO> {
      *
      * @return 所有数据
      */
-    List<PoopPO> listByYearMonth(int year, int month);
+    List<PoopPO> listByYearMonth(int userId, String year, String month);
 
     /**
      * 新增数据
@@ -45,8 +47,17 @@ public interface PoopService extends IService<PoopPO> {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param po 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer id);
+    boolean deleteById(PoopPO po);
+
+    /**
+     * 查询用户指定年份的统计数据
+     *
+     * @param year 年份
+     * @param userId 用户ID
+     * @return 是否成功
+     */
+    List<PoopBO> selectStatisticsByYear(Integer year, int userId);
 }

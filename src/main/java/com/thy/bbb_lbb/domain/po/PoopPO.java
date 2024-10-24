@@ -5,6 +5,7 @@ import java.io.Serial;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
@@ -14,7 +15,7 @@ import java.io.Serializable;
  * @author thy
  * 2024-10-17 14:47:27
  */
-@TableName("Poop")
+@TableName("poop")
 @Schema(description = "")
 @Data
 @AllArgsConstructor
@@ -35,4 +36,16 @@ public class PoopPO extends Model<PoopPO> implements Serializable {
     @Schema(description = "")
     @TableField(value = "poop_time")
     private Date poopTime;
+
+    @Schema(description = "年份")
+    @TableField(value = "year")
+    private int year;
+
+    @Schema(description = "月份")
+    @TableField(value = "month")
+    private int month;
+
+    @Schema(description = "是否生效 0: false 1:true")
+    @TableField(value = "effect")
+    private boolean effect;
 }

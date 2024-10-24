@@ -24,4 +24,11 @@ public interface UserMapper extends BaseMapper<UserPO> {
      * 2024-10-17 14:07:42
      */
     List<UserPO> listAll(UserDTO dto);
+
+    /**
+     * 登录验证
+     * @author thy
+     * 2024-10-21 14:50:00
+     * */
+    UserPO login(UserDTO dto);
 }

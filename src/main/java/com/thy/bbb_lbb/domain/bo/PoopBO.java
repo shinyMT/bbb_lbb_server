@@ -14,13 +14,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PoopBO {
+    @Schema(description = "月份")
+    private int month;
 
-    @Schema(description = "")
-    private Integer id;
-
-    @Schema(description = "")
-    private Integer userId;
-
-    @Schema(description = "")
-    private Date poopTime;
+    @Schema(description = "次数")
+    private int num;
 }

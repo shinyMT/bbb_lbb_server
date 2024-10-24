@@ -1,18 +1,51 @@
-server:
-  port: 11101
-
 spring:
   datasource:
-    username: thy
-    password: thy0102.
-    url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      # 是否启用StatFilter默认值true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+        session-stat-enable: false
+        session-stat-max-count: 1000
+        principal-cookie-name: admin
+        principal-session-name: admin
+        profile-enable: true
+      # 根据配置中的url-pattern来访问内置监控页面，如果是上面的配置，内置监控页面的首页是/druid/index.html
+      # http://loacalhsot:8081/druid
+      stat-view-servlet:
+        # 是否启用StatViewServlet（监控页面）默认值为false（考虑到安全问题默认并未启动，如需启用建议设置密码或白名单以保障安全）
+        enabled: true
+        url-pattern: '/druid/*'
+        # IP白名单(没有配置或者为空，则允许所有访问)
+        allow:
+        # 禁用HTML页面上的“Reset All”功能
+        reset-enable: false
+        # 登录名
+        login-username:
+        # 登录密码
+        login-password:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?useSSL=false&serverTimezone=UTC
+          username: thy
+          password: thy0102.
+#spring:
+#  datasource:
+#    username: thy
+#    password: thy0102.
+##    url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+#    url: jdbc:mysql://47.109.80.139:3306/bbb_lbb
+#    driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
   level:
     root: INFO
     org.springframework.web: INFO
-    com.erzhong: DEBUG
+    com.thy: DEBUG
   file:
     name: log/dev.log
   pattern:

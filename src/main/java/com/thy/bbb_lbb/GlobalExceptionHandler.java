@@ -3,7 +3,6 @@ package com.thy.bbb_lbb;
 import com.thy.bbb_lbb.result.GlobalException;
 import com.thy.bbb_lbb.result.MultiGlobalException;
 import com.thy.bbb_lbb.result.ResultBody;
-import jakarta.validation.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
+import javax.validation.ValidationException;
 import java.util.Map;
 
 

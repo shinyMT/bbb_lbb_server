@@ -1,13 +1,16 @@
 package com.thy.bbb_lbb.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.thy.bbb_lbb.anno.UsePage;
+import com.thy.bbb_lbb.domain.bo.PoopBO;
 import com.thy.bbb_lbb.mapper.PoopMapper;
 import com.thy.bbb_lbb.domain.po.PoopPO;
 import com.thy.bbb_lbb.service.PoopService;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -26,13 +29,13 @@ public class PoopServiceImpl extends ServiceImpl<PoopMapper, PoopPO> implements 
 
     @UsePage
     @Override
-    public List<PoopPO> listByYearMonth(int year, int month) {
-        return mapper.listByYearMonth(year, month);
+    public List<PoopPO> listByYearMonth(int userId, String year, String month) {
+        return mapper.listByYearMonth(userId, year, month);
     }
 
     @Override
     public boolean insert(PoopPO poop) {
-        return this.save(poop);
+        return mapper.insert(poop) > 0;
     }
 
     @Override
@@ -41,7 +44,12 @@ public class PoopServiceImpl extends ServiceImpl<PoopMapper, PoopPO> implements 
     }
 
     @Override
-    public boolean deleteById(Integer id) {
-        return this.removeById(id);
+    public boolean deleteById(PoopPO po) {
+        return mapper.updateById(po) > 0;
+    }
+
+    @Override
+    public List<PoopBO> selectStatisticsByYear(Integer year, int userId) {
+        return mapper.listStatisticsByYear(year, userId);
     }
 }

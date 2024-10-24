@@ -27,15 +27,15 @@ public class UserPO extends Model<UserPO> implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @Schema(description = "")
+    @Schema(description = "账号")
     @TableField(value = "code")
     private String code;
 
-    @Schema(description = "")
+    @Schema(description = "用户名")
     @TableField(value = "name")
     private String name;
 
-    @Schema(description = "")
+    @Schema(description = "密码")
     @TableField(value = "password")
     private String password;
 }

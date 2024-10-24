@@ -1,24 +1,41 @@
-version: '1.0.0'
-
 server:
   port: 11101
-  # ??????
+  # 接口统一前缀
   servlet:
     context-path: /blb
 
-springdoc:
-  api-docs:
-    enabled: true
-    path: /v3/api-docs
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
+version: '1.0.0'
 
 spring:
   application:
     name: 'bbb_lbb'
   profiles:
     active: dev
+  datasource:
+    druid:
+      # 初始化 最小 最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      filters: stat,wall
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+          # 开启慢sql监控
+          log-slow-sql: true
+          # 慢sql超时毫秒
+          slow-sql-millis: 5000
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?useSSL=false&serverTimezone=UTC
+          username: thy
+          password: thy0102.
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
