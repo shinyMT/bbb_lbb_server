@@ -3,7 +3,6 @@ package com.thy.bbb_lbb.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.thy.bbb_lbb.domain.bo.PoopBO;
-import com.thy.bbb_lbb.domain.dto.PoopDTO;
 import com.thy.bbb_lbb.domain.po.PoopPO;
 
 import java.util.List;

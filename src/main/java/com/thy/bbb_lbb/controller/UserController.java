@@ -1,6 +1,5 @@
 package com.thy.bbb_lbb.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageInfo;
 import com.thy.bbb_lbb.domain.dto.UserDTO;
 import com.thy.bbb_lbb.domain.po.UserPO;
@@ -16,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * @author c4x

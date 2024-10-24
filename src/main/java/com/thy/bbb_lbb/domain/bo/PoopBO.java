@@ -1,7 +1,5 @@
 package com.thy.bbb_lbb.domain.bo;
 
-import java.util.Date;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 

@@ -5,7 +5,6 @@ import java.io.Serial;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.*;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
@@ -25,15 +24,15 @@ public class PoopPO extends Model<PoopPO> implements Serializable {
     @Serial
     private static final long serialVersionUID = -73714110713620909L;
 
-    @Schema(description = "")
+    @Schema(description = "id")
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @Schema(description = "")
+    @Schema(description = "用户ID")
     @TableField(value = "user_id")
     private Integer userId;
 
-    @Schema(description = "")
+    @Schema(description = "BB时间")
     @TableField(value = "poop_time")
     private Date poopTime;
 

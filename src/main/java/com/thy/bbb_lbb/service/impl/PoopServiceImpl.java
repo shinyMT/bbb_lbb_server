@@ -1,7 +1,5 @@
 package com.thy.bbb_lbb.service.impl;
 
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.thy.bbb_lbb.anno.UsePage;
 import com.thy.bbb_lbb.domain.bo.PoopBO;
