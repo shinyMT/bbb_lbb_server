@@ -30,16 +30,9 @@ spring:
       datasource:
         master:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?useSSL=false&serverTimezone=UTC
+          url: jdbc:mysql://47.109.80.139:3306/bbb_lbb_main?useSSL=false&serverTimezone=UTC
           username: thy
           password: ENC(xD/s6lzV3b0SLKA7aaqWTHI6ls8wVzYx)
-#spring:
-#  datasource:
-#    username: thy
-#    password: thy0102.
-##    url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
-#    url: jdbc:mysql://47.109.80.139:3306/bbb_lbb
-#    driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
   level:
@@ -57,11 +50,3 @@ logging:
       max-history: 31
       total-size-cap: 100MB
       file-name-pattern: log/dev.%d{yyyy-MM-dd}.%i.log
-
-python:
-  exe-file: '/Users/tenghaiyi/PycharmProjects/novel_python/novel.py'
-  target-path: '/Users/novel/'
-  source-py-path: '/Library/Frameworks/Python.framework/Versions/3.10/bin/python3'
-#  exe-file: 'D:\\project\\thy\\python\\novel\\novel.py'
-#  target-path: 'G:\\novel\\'
-#  source-py-path: 'G:\\AppData\\Local\\Programs\\Python\\Python38\\python'

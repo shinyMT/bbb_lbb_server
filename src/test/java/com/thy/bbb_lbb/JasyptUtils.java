@@ -59,7 +59,7 @@ public class JasyptUtils {
     }
 
     public static void main(String[] args) {
-        String message = "1";
+        String message = "thy0102.";
         String password = "THY-bbb_lbb@24";
 
         //一个同样的密码和秘钥，每次执行加密，密文都是不一样的。但是解密是没问题的。
