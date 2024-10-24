@@ -28,14 +28,6 @@ spring:
           log-slow-sql: true
           # 慢sql超时毫秒
           slow-sql-millis: 5000
-    dynamic:
-      primary: master
-      datasource:
-        master:
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://47.109.80.139:3306/bbb_lbb?useSSL=false&serverTimezone=UTC
-          username: thy
-          password: thy0102.
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
@@ -45,3 +37,13 @@ mybatis-plus:
     cache-enabled: false
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
+
+jasypt:
+  encryptor:
+    password: "THY-bbb_lbb@24"
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    key-obtention-iterations: 1000
+    pool-size: 1
+    provider-name: SunJCE
+    salt-generator-classname: org.jasypt.salt.RandomSaltGenerator
